@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
@@ -16,10 +17,23 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	_, err = sql.Open("pgx", os.Getenv("DATABASE_URL"))
+	db, err := sql.Open("pgx", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		log.Fatalf("failed to connect to db: %v", err)
 	}
 
-	fmt.Println("Welcome to shortman")
+	err = db.Ping()
+	if err != nil {
+		log.Fatalf("database ping failed: %v", err)
+	}
+
+	server := http.Server{
+		Addr: fmt.Sprintf(":%s", os.Getenv("PORT")),
+	}
+
+	log.Printf("starting server on %s", server.Addr)
+	err = server.ListenAndServe()
+	if err != nil {
+		log.Fatalf("failed to start server: %v", err)
+	}
 }
