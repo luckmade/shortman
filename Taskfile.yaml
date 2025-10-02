@@ -1,5 +1,6 @@
 version: "3"
 
+dotenv: [".env"]
 
 tasks:
   build:
@@ -7,3 +8,19 @@ tasks:
     - go build ./...
 
   run: go run .
+
+  test: go test -v ./...
+
+  up: goose -dir ./migrations postgres $DATABASE_URL up
+
+  down: goose -dir ./migrations postgres $DATABASE_URL down
+
+  reset: goose -dir ./migrations postgres $DATABASE_URL reset
+
+  test-up: goose -dir ./migrations postgres $TEST_DATABASE_URL up
+
+  test-down: goose -dir ./migrations postgres $TEST_DATABASE_URL down
+
+  test-reset: goose -dir ./migrations postgres $TEST_DATABASE_URL reset
+
+  
