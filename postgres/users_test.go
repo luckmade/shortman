@@ -10,8 +10,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/luckmade/shortman/models"
-	"github.com/luckmade/shortman/postgres"
+	"github.com/luckmade/shorter-url/models"
+	"github.com/luckmade/shorter-url/postgres"
 	"github.com/stretchr/testify/require"
 	"golang.org/x/crypto/bcrypt"
 

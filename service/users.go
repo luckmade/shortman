@@ -2,7 +2,7 @@ package service
 
 import (
 	"context"
-	"github.com/luckmade/shortman/models"
+	"github.com/luckmade/shorter-url/models"
 )
 
 type UsersService struct {

@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"github.com/luckmade/shortman/models"
+	"github.com/luckmade/shorter-url/models"
 )
 
 type LinksRepository struct {

@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/luckmade/shortman/models"
+	"github.com/luckmade/shorter-url/models"
 )
 
 type UsersRepository struct {

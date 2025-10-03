@@ -1,4 +1,4 @@
-module github.com/luckmade/shortman
+module github.com/luckmade/shorter-url
 
 go 1.25.0
 
