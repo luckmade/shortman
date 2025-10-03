@@ -26,8 +26,14 @@ type UsersRepository interface {
 	Delete(ctx context.Context, id string) error
 }
 
+type UserData struct{
+	Name string `json:"name"`
+	Email string `json:"email"`
+	Password string `json:"password"`
+}
+
 type UsersService interface {
-	CreateUser(ctx context.Context, user *User) error
+	CreateUser(ctx context.Context, data *UserData) error
 	GetUserById(ctx context.Context, id string) (*User, error)
 	UpdateUser(ctx context.Context, user *User) error
 	DeleteUser(ctx context.Context, id string) error
