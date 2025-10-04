@@ -158,24 +158,24 @@ func TestUsersRepository_Update(t *testing.T) {
 }
 
 func TestUsersRepository_Delete(t *testing.T) {
-  repo := postgres.NewUserRepository(openTestDB(t))
+	repo := postgres.NewUserRepository(openTestDB(t))
 
-    t.Run("delete existing user", func(t *testing.T) {
-        user := generateValidUser(t)
-        err := repo.Create(context.Background(), user)
-        require.NoError(t, err)
+	t.Run("delete existing user", func(t *testing.T) {
+		user := generateValidUser(t)
+		err := repo.Create(context.Background(), user)
+		require.NoError(t, err)
 
-        err = repo.Delete(context.Background(), user.Id)
-        require.NoError(t, err)
+		err = repo.Delete(context.Background(), user.Id)
+		require.NoError(t, err)
 
-        got, err := repo.Get(context.Background(), user.Id)
-        require.Error(t, err)
-        require.Nil(t, got)
-    })
+		got, err := repo.Get(context.Background(), user.Id)
+		require.Error(t, err)
+		require.Nil(t, got)
+	})
 
-    t.Run("delete non-existing user", func(t *testing.T) {
-        nonExistentId := uuid.NewString()
-        err := repo.Delete(context.Background(), nonExistentId)
-        require.Error(t, err)
-    })
+	t.Run("delete non-existing user", func(t *testing.T) {
+		nonExistentId := uuid.NewString()
+		err := repo.Delete(context.Background(), nonExistentId)
+		require.Error(t, err)
+	})
 }

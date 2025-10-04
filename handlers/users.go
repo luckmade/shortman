@@ -16,20 +16,18 @@ func NewHandler(us models.UsersService) *Handler {
 	}
 }
 
+func (h *Handler) CreateUserHandler(w http.ResponseWriter, r *http.Request) {
 
-func (h *Handler) CreateUserHandler(w http.ResponseWriter, r *http.Request){
-	
 }
 
-func (h *Handler) UpdateUserHandler(w http.ResponseWriter, r *http.Request){
-	
+func (h *Handler) UpdateUserHandler(w http.ResponseWriter, r *http.Request) {
+
 }
 
-func (h *Handler) GetUserHandler(w http.ResponseWriter, r *http.Request){
-	
+func (h *Handler) GetUserHandler(w http.ResponseWriter, r *http.Request) {
+
 }
 
-func (h *Handler) DeleteUserHandler(w http.ResponseWriter, r *http.Request){
-	
+func (h *Handler) DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
+
 }
- 
